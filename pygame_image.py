@@ -20,8 +20,10 @@ def main():
 
         tmr += 1
         x -=1
-        screen.blit(bg_img, [0, 0])
-        screen.blit(bg_img, [1600,0])
+        if x==1599:
+            x=0
+        screen.blit(bg_img, [0+x, 0])
+        screen.blit(bg_img, [1600+x, 0])
         if tmr%2==0:
             screen.blit(kt_list[0],[300,200])
         else:
