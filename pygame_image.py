@@ -7,8 +7,8 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")
     kt_img = pg.image.load("ex01/fig/3.png")
-    kt_img = pg.transform.flip(kt_img, True, False)
-    kt_img = pg.transform.rotozoom(kt_img,10,1.0)
+    kt_img_1 = pg.transform.flip(kt_img, True, False)
+    kt_img_2 = pg.transform.rotozoom(kt_img_1,10,1.0)
 
     tmr = 0
 
@@ -18,7 +18,10 @@ def main():
 
         tmr += 1
         screen.blit(bg_img, [0, 0])
-        screen.blit(kt_img,[100,100])
+        if tmr%2==0:
+            screen.blit(kt_img_1,[300,200])
+        else:
+            screen.blit(kt_img_2,[300,200])
 
         pg.display.update()
         clock.tick(100)
